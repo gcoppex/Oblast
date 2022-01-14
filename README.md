@@ -50,4 +50,6 @@ with OblastConnection() as connection:
         foo_var.set("42")
         time.sleep(1)
 ```
+
+### NodeMCU / ESP8266 demo:
 An analogous implementation for Arduino (or NodeMCU) can be found in the `clientAPI/nodeMCU/` folder. In particular, `clientAPI/nodeMCU/dht22/dht22.ino` illustrates how to use an ESP8266 to measure temperature / humidity data and to publish them to Oblast infrastructure.
