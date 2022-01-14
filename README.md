@@ -15,5 +15,24 @@ Once the server is started, it listens to UDP port `1292` and TCP port `1291` (d
 ## Global variable names:
 Each publisher first subscribe to a given variable name. These names are unique for the whole platform. The value can then be manipulated at the programmer's convenience and updates are automatically sent to the server who propagates them to the other subscribers.
 
-## Subscribe to all variables
-A standard client would register to a set of specific variables. Oblast API provides also the ability for a client to subscribe to all existing (and future) variables. This is typically useful for having an overview of the state of the system and possibly to store data in a database.
+## subscribe to variables
+A standard client would register to a set of specific variables using a `subscribe` call. Each variable is indentified by a system-wide name.
+
+Oblast API provides also the ability for a client to subscribe to all existing (and future) variables. This is typically useful for having an overview of the state of the system and possibly to store data in a database.
+
+## How to start the server:
+To compile the server, go to the `server/` folder and use `make`:
+```
+cd server;
+make;
+```
+Open the necessary ports using `ufw`:
+```
+sudo ufw allow 1291:1292/udp
+```
+Finally run the server:
+```
+./bin/oblast
+```
+
+## How to write a client:
