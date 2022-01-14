@@ -173,8 +173,6 @@ void startServer() {
     }
     std::cout << "Server ready." << std::endl;
 
-    int isLittleEndian = htonl(42)!=42;
-
     fd_set fdSet;
     FD_ZERO(&fdSet);
     FD_SET(udpSockFd, &fdSet);
@@ -289,7 +287,7 @@ void startServer() {
             }
 
             if(clientFdsIdleTime[*it] > TCP_KEEP_ALIVE_TIMEOUT) {
-                char* buff = "KEEP_ALIVE";
+                char const* buff = "KEEP_ALIVE";
                 int bufferSize = strlen(buff);
 
                 uint16_t payloadLength = htons(bufferSize);

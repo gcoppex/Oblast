@@ -7,7 +7,7 @@ SRC = ./src
 BIN = ./bin
 BLD = ./bld
 
-TARGET = iotServer
+TARGET = oblast
 
 all: $(TARGET)
 
