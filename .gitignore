@@ -13,15 +13,14 @@
 *.a
 *.lib
 
-./bin/*
-./bld/*
+./server/bin/*
+./server/bld/*
 
 # Executables
 iotServer
 
 # Setting files with private passwords
-nodeMCU/settings.h
-*/settings.h
+clientAPI/nodeMCU/settings.h
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
