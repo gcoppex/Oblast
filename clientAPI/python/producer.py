@@ -14,7 +14,7 @@ def read_sensor_data():
 def main():
     with OblastConnection() as connection:
         try:
-            foo_var = connection.subscribe("fee_var", reactor)
+            foo_var = connection.subscribe("foo_var", reactor)
             while True:
                 connection.handle_updates()
                 foo_var.set("42")

@@ -36,3 +36,17 @@ Finally run the server:
 ```
 
 ## How to write a client:
+To see the full example, open `clientAPI/python/producer.py`. Here is a step by
+step walk-through:
+
+First the client need to create the connection using a `OblastConnection`. Then it needs to use that connection to `subscribe` to a given variable with a suitable name (`foo_var`).
+Finally it periodically updates the variable value - maybe reading a sensor data - using the `set` function. The client should also yield its execution and let the connection handle the variable updates (`handle_updates()` below).
+```
+# simplified extract from clientAPI/python/producer.py:
+with OblastConnection() as connection:
+    foo_var = connection.subscribe("foo_var", reactor)
+    while True:
+        connection.handle_updates()
+        foo_var.set("42")
+        time.sleep(1)
+```
