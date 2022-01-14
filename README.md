@@ -1,11 +1,13 @@
 # Oblast IoT platform
-Oblast is a simple and lightweight IoT platform following the publish–subscribe pattern. The architecture consists of
+Oblast is a lightweight IoT platform following the publish/subscribe design pattern. The architecture consists of
  - a central server - responsible of collecting and distributing the updates and
- - a list of clients. Each client can publish or subscribe (or both) to a variable.
+ - a list of clients. Each client can publish or subscribe (or both) to a named
+ variable.
 
-Two clients are provided:
+Two client API are provided:
  - a Python3 module to write your own custom publisher and subscriber (e.g on a Raspberry PI)
- - a C++ library to write (embedded) clients (e.g. on an Arduino board)
+ - a C++ library to write (embedded) clients (e.g. on an Arduino development
+board)
 
 ## Autoamtic architecture discovery:
 Once the server is started, it listens to UDP port `1292` and TCP port `1291`. The UDP socket is used for the client to discover the server's IP address using a multicast query. Once the server is located, the clients are instructed to connect using a TCP channel.
