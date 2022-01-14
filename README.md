@@ -9,10 +9,11 @@ Two client API are provided:
  - a C++ library to write (embedded) clients (e.g. on an Arduino development
 board)
 
-## Autoamtic architecture discovery:
-Once the server is started, it listens to UDP port `1292` and TCP port `1291`. The UDP socket is used for the client to discover the server's IP address using a multicast query. Once the server is located, the clients are instructed to connect using a TCP channel.
+## Automatic network discovery:
+Once the server is started, it listens to UDP port `1292` and TCP port `1291` (don't forget to create a firewall rule for them). The UDP socket is used for the client to discover the server's IP address using a multicast query. Once the server is located, the clients are instructed to connect using a TCP channel.
 
-## Global variable names and subscription:
+## Global variable names:
 Each publisher first subscribe to a given variable name. These names are unique for the whole platform. The value can then be manipulated at the programmer's convenience and updates are automatically sent to the server who propagates them to the other subscribers.
 
-The client API provides also the ability for a client to register to all existing (and future) variables. This is typically useful for having an overview of the state of the system and possibly to store data in a database.
+## Subscribe to all variables
+A standard client would register to a set of specific variables. Oblast API provides also the ability for a client to subscribe to all existing (and future) variables. This is typically useful for having an overview of the state of the system and possibly to store data in a database.
