@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS  = -g -Wall
+CFLAGS  = -Os -Wall
 LD = g++
 MKDIR_P = mkdir -p
 

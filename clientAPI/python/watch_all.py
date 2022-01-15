@@ -8,9 +8,6 @@ from oblast import OblastConnection
 def reactor(var_name, var_value):
     print("reactor_all: %s: %s" %(var_name, var_value))
 
-def read_sensor_data():
-    return "foo=%d" % os.getpid()
-
 def main():
     with OblastConnection() as connection:
         try:
