@@ -1,5 +1,3 @@
-#include <ESP8266WiFi.h>
-#include <WiFiUdp.h>
 #include "OblastConnection.h"
 
 bool OblastConnection::connect(bool incrementalRetryDelay/* = 0 */) {
@@ -26,13 +24,13 @@ bool OblastConnection::connect(bool incrementalRetryDelay/* = 0 */) {
 
     int sendingRetryBudget = 5;
     int sendingRetryDelay = 50;
-    IPAddress serverIpAddress = NULL;
+    IPAddress serverIpAddress(0, 0, 0, 0);
     // This loop can take up to 281×5+659 = ~2064 ms max delay time to execute.
     while(!serverIpAddress && sendingRetryBudget>0) {
         sendingRetryBudget--;
 
         multicastUdp.beginPacket(multicastAddress, multicastPort);
-        multicastUdp.write(register_message.c_str());
+        multicastUdp._SEND_FUNCTION_(register_message.c_str());
         int ret = multicastUdp.endPacket();
         if(ret==0) {
             // try again to send by restarting the loop:

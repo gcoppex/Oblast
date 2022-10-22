@@ -6,6 +6,13 @@
 #include <WiFiUdp.h>
 #include <map>
 
+#ifdef WiFi_h
+    #define _SEND_FUNCTION_ print
+#else
+    #define _SEND_FUNCTION_ write
+#endif
+
+
 typedef void (*OBLAST_CALLBACK)(String const&, String const&);
 
 class OblastVar;
