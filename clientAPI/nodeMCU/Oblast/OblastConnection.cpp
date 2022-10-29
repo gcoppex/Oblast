@@ -139,6 +139,7 @@ void OblastVar::setConnection(OblastConnection* connection) {
     this->connection = connection;
 }
 bool OblastVar::setValue(String const& value, bool updateServer/* = true*/) {
+  this->value = value;
     if(updateServer) {
         if(!this->connection->
             sendMessage("update", this->getName(), this->getValue())
@@ -146,7 +147,6 @@ bool OblastVar::setValue(String const& value, bool updateServer/* = true*/) {
             return false;
         }
     }
-    this->value = value;
     return true;
 }
 
