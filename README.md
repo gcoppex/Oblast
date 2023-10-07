@@ -53,3 +53,27 @@ with OblastConnection() as connection:
 
 ### NodeMCU / ESP8266 demo:
 An analogous implementation for Arduino (or NodeMCU) can be found in the `clientAPI/nodeMCU/` folder. In particular, `clientAPI/nodeMCU/dht22/dht22.ino` illustrates how to use an ESP8266 to measure temperature / humidity data and to publish them to Oblast infrastructure.
+
+## Setting a service on Raspberrypi
+Write the following file (as root) into `/etc/systemd/system/oblast.service`:
+```
+[Unit]
+Description=Oblast service
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/Documents/Oblast/server
+ExecStart=/home/pi/Documents/Oblast/server/bin/oblast
+Restart=Always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target                         
+```
+Restart the daemon (`systemctl daemon-reload`) and then start the service `systemctl start oblast.service`
+
+### Logs of Oblast:
+To see the logs, use 
+```
+sudo journalctl -u oblast
+``
