@@ -44,6 +44,7 @@ public:
     String const& getValue() const;
     String const& getName() const;
     void setConnection(OblastConnection* connection);
+    void setCallback(OBLAST_CALLBACK callback);
     void fireCallback(String const& key, String const& value);
 private:
     OblastConnection* connection;

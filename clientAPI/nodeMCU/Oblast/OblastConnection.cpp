@@ -135,6 +135,10 @@ String const& OblastVar::getName() const {
     return this->name;
 }
 
+void OblastVar::setCallback(OBLAST_CALLBACK callback) {
+    this->callback = callback;
+}
+
 void OblastVar::setConnection(OblastConnection* connection) {
     this->connection = connection;
 }
