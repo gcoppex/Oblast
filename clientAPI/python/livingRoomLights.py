@@ -22,7 +22,7 @@ def main():
                 connection.handle_updates()
                 top_setting.set("1")
                 time.sleep(2)
-                top_setting.set("1")
+                top_setting.set("0")
                 time.sleep(2)
 
                 bottom_setting.set("1")
