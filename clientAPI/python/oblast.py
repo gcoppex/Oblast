@@ -122,13 +122,9 @@ class OblastConnection:
                     if key in self.subscribed_vars:
                         self.subscribed_vars[key]._set(value)
                         self.subscribed_vars[key].fire_reactor()
-
-                        # Also calling the all_callback if available:
-                        if self.all_callback is not None:
-                            self.all_callback(key, value)
-                    else:
-                        if self.all_callback is not None:
-                                self.all_callback(key, value)
+                    # Also calling the all_callback if available:
+                    if self.all_callback is not None:
+                        self.all_callback(key, value)
                 except ValueError as error:
                     print("Ill-formed message :", message)
         except BlockingIOError as error:
